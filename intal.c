@@ -1,11 +1,9 @@
 //C library for the integers of arbitrary length (intal).
 
-
 #include "intal.h"
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-
 
 
 int intal_compare(const char* intal1, const char* intal2)

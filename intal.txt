@@ -1,0 +1,76 @@
+C library for the integers of arbitrary length (intal).
+
+Report by:
+Ankitha P
+PES1201801491
+Sem 4, section D
+
+
+Introduction:
+An intal is an integer of arbitrary length stored as a null-terminated string of ASCII characters. It is represented as a string of decimal digits that are stored in the big-endian style. An integer container cannot be used to store a number with 100000 digits, as the largest we can go is unsigned long long int (up to 2^64 - 1 only). Thus, such huge integers of large arbitrary length are stored in the form of character array and are different from normal integers (or any other data types supported by C like short, float, long int etc).
+
+
+Applications of Intal: 
+1)Perform algebraic operations like addition, subtraction, multiplication, division, exponentiation etc on very large numbers of arbitrary length.
+2)To store number containing almost 10,000 digits in form of string
+3)Easy to handle 
+
+
+
+Approach:
+1)intal_add:
+Find the larger of the two numbers and add it to the smaller number. If either of the numbers is 0 simply return the other number. Else addition of two numbers digit by digit from right to left 	taking carry into account and storing it in the result array. If there is a carry after completing addition append it to the result array.
+
+2)Intal_compare:
+Compare the length of the two input strings. Return the number with larger length. If they are of same length then used the memcmp function to compare the individual digits.
+
+3)Intal_diff:
+If the two numbers are same then return 0. If not, find the larger of the two numbers and subtract it from the smaller one. The subtraction is carried out digit by digit from right to left by taking the borrow into account and storing it in a result array. If leading zeroes present, it is strip off and stored in the final result array.
+
+4)Intal_multiply:
+For multiplication process, we start from the last digit of second number and multiply it with first number. Then multiply the second digit of second number with the first number, and so on. Add all these multiplications and while doing this, the i-th multiplication is shifted.
+
+5)Intal_mod:
+Using binary search approach to the quotient to find the smallest remainder. Initialise low to 0 and high to intal1 and keep finding mid as long as low<high. Calculate intal1-(mid*intal2) and if this value is greater than intal2 make low as mid+1, else high as mid-1. In this way we find the quotient(low) and thus return remainder using intal1-(low*intal2).
+
+6)Intal_pow: 
+Used the divide and conquer approach to calculate the power of a number. The solution divides the problem into subproblems of size n/2 and call the subproblems recursively. The base conditions considered: If n==0, then simply return 1. Also, if the number to be raised to a pow is o, return 0.
+
+7)Intal_gcd:
+Using the standard Euclid’s algorithm to find the gcd by finding the mod of larger number with smaller until the number comes down to 0. Finally return the gcd.
+
+8)Intal_fibonacci:
+If n=0 or n=1 return 0 and 1 respectively. for n>=2, it is calculated by recursively calling the function: f(n)=f(n-1) +f(n-2). Thus, returning the final result.
+
+9)Intal_factorial:
+If n=0 or n=1, then return 1. Otherwise recursively call the subproblem intal_factorial(n-1) until n=1.
+
+10)Intal_bincoeff:
+Using dynamic programming approach for calculating the binomial coefficient of a number by using the Pascal’s identity : C(n,k) = C(n-1,k) + C(n-1,k-1). The intermediate values are stored in the DP table.
+
+11)Intal_max:
+Initialize max as first element, then traverse the given array from second element till end. For every traversed element, compare it with max using the intal_compare function, if it is greater than max, then update max. Finally return the max.
+
+12)Intal_min:
+Initialize variable min as first element, then traverse the given array from second element till end. For every traversed element, compare it with min using the intal_compare function, if it is less than min, then update min. Finally return the min value.
+
+13)Intal_search:
+Start from the leftmost element of arr and one by one compare x with each element of arr using the intal_compare function. If x matches with an element, return the index. If x doesn’t match with any of elements, return -1.
+
+14)Intal_binsearch:
+Assuming the given array of intals is sorted in non-decreasing order and using the iterative method to find the element. Compare key with the middle element. If key is greater than the mid element, then x we recur for right half by making l=mid+1. Else if mid>0 and key is smaller than arr[mid-1] then recur for left half making h=mid-1. Else return mid value thus returning the smallest offset of the key. If key not found return -1.
+
+15)Intal_sort:
+Used Divide and Conquer algorithm – Merge Sort that divides the input array into two halves, calls itself for the two halves (into subproblems), does the comparison and then merges the two sorted halves. Finally returning the sorted array of intals. The merge () function is used for merging the two halves.
+
+16)Coin_row_problem:
+This is solved dynamically. If the value of n=0 it returns “0” and if n=1 it returns arr [0]. For n>=2 Let curr=arr [0]. It runs a for loop till n by comparing addition of prev and arr[i-1]. Takes out the max value out of the sum and curr.Assigns it to new char array called next and prev gets updated to curr and curr to next. Finally, when i becomes n it returns curr that is max amount of money. This is the optimal solution which uses O(n) time and O (1) size.
+
+
+
+Future Work:
+a) 	1)It can be further implemented for negative numbers by taking the sign into consideration.
+	2)Some more functions that can be implemented are finding quotient, sorting in decreasing order, finding negative exponents, logarithm , some bitwise operations like XOR , AND etc.
+
+b)	I feel the best way to handle integers of arbitrary length is by storing them as strings. Will modify and improvise on the same.
+

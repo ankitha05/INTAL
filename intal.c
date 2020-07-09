@@ -1,9 +1,5 @@
 //C library for the integers of arbitrary length (intal).
 
-//Report by:
-// Name : Ankitha P
-// SRN  : PES1201801491
-// Class: Sem 4, section D
 
 #include "intal.h"
 #include<stdio.h>

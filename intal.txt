@@ -2,8 +2,7 @@ C library for the integers of arbitrary length (intal).
 
 Report by:
 Ankitha P
-PES1201801491
-Sem 4, section D
+
 
 
 Introduction:

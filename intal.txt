@@ -3,8 +3,6 @@ C library for the integers of arbitrary length (intal).
 Report by:
 Ankitha P
 
-
-
 Introduction:
 An intal is an integer of arbitrary length stored as a null-terminated string of ASCII characters. It is represented as a string of decimal digits that are stored in the big-endian style. An integer container cannot be used to store a number with 100000 digits, as the largest we can go is unsigned long long int (up to 2^64 - 1 only). Thus, such huge integers of large arbitrary length are stored in the form of character array and are different from normal integers (or any other data types supported by C like short, float, long int etc).
 
@@ -13,7 +11,6 @@ Applications of Intal:
 1)Perform algebraic operations like addition, subtraction, multiplication, division, exponentiation etc on very large numbers of arbitrary length.
 2)To store number containing almost 10,000 digits in form of string
 3)Easy to handle 
-
 
 
 Approach:
